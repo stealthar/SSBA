@@ -3,6 +3,16 @@
 #ifndef V3D_MATH_UTILITIES_H
 #define V3D_MATH_UTILITIES_H
 
+#ifndef isinf 
+#define isinf(x) ((x)!=(x)) 
+#endif
+
+#ifndef isnan 
+#define isnan(x) ((x)!=(x)) 
+#endif
+
+#define NOMINMAX
+
 #include "Math/v3d_linear.h"
 #include "Math/v3d_linear_tnt.h"
 

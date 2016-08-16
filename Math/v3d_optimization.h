@@ -3,6 +3,8 @@
 #ifndef V3D_OPTIMIZATION_H
 #define V3D_OPTIMIZATION_H
 
+#define NOMINMAX
+
 #include "Math/v3d_linear.h"
 #include "Math/v3d_linear_tnt.h"
 #include "Math/v3d_mathutilities.h"

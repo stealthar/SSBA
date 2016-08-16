@@ -1,3 +1,5 @@
+#define NOMINMAX
+
 #include "bundle_large_common.h"
 
 #include "Base/v3d_timer.h"

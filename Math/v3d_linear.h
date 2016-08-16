@@ -5,6 +5,8 @@
 
 #include "Math/v3d_linearbase.h"
 
+#define NOMINMAX
+
 #include <iostream>
 
 namespace V3D
