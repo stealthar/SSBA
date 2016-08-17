@@ -4,7 +4,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE	:= colamd
-#LOCAL_CFLAGS	:= -fPIC -D_ANDROID_BUILD -D_ANDROID_DEBUG_BUILD -std=c++11 -fexceptions
+LOCAL_CFLAGS	:= -fPIC -D_ANDROID_BUILD -D_ANDROID_DEBUG_BUILD -DV3DLIB_ENABLE_SUITESPARSE -fexceptions
 LOCAL_CPPFLAGS 	+= 
 LOCAL_SRC_FILES	:= \
 	./Source/colamd_global.c \
