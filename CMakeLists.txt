@@ -141,5 +141,5 @@ install (TARGETS V3D EXPORT depends DESTINATION lib)
 
 add_subdirectory(Apps)
 
-set(PROJECT_LIBRARY_LIST colamd ldl V3D)
+set(PROJECT_LIBRARY_LIST V3D colamd ldl)
 add_subdirectory(cmake)
