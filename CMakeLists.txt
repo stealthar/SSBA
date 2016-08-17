@@ -38,6 +38,27 @@ message (STATUS "CMAKE_INSTALL_PREFIX set to ${CMAKE_INSTALL_PREFIX}")
 
 
 #####################################################################
+# set release optimization flags & debug postfix & build type
+if (WIN32)
+	if (CMAKE_SIZEOF_VOID_P EQUAL 8)
+		# if 64 bit build then do not set SSE2 flag
+		# all 64bit architectures have SSE2 so it's enabled by default and the
+		# compiler ignores and complains about this flag 
+		set(CMAKE_CXX_FLAGS_RELEASE 
+			"${CMAKE_CXX_FLAGS_RELEASE} /Ox /Ob2 /Oi /Ot")
+	else ()
+		set(CMAKE_CXX_FLAGS_RELEASE 
+			"${CMAKE_CXX_FLAGS_RELEASE} /Ox /Ob2 /Oi /Ot /arch:SSE2")
+	endif()
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")	
+else()
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -std=c++11")
+    if (DEFINED CUSTOM_ARCH)
+      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=${CUSTOM_ARCH}")
+    endif()
+endif()
 
 # debug postfix
 set (CMAKE_DEBUG_POSTFIX _d CACHE STRING "debug postfix" FORCE)
